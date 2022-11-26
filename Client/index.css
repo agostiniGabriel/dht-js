@@ -1,5 +1,42 @@
-.background {
-    z-index: -1;
+* {
+    background-color: #444759;
+}
+
+.contentContainer {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.uploadContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    flex-direction: column;
+    width: 50vh;
+    height: 50vh;
     position: absolute;
-    margin-left: -10%;
+    border-radius: 1rem;
+    border: none;
+    background: url('./assets/background.svg');
+    background-position: bottom;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+
+.uploadFile {
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    border-radius: 4px;
+    background-color: #0693E3;
+    border: none;
+    color: white;
+    padding: 15px 15px;
+    text-align: center;
+    font-size: 16px;
 }
