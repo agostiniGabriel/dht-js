@@ -1,9 +1,15 @@
 module.exports = app =>{
     const controller = {};
-    const axios = require('axios');
+    const fs = require('fs');
 
     controller.uploadFile = (req,res) => {
-        console.log(JSON.parse(JSON.stringify(req)));
+        req.on('readable', function(){
+            const buffer = req.read();
+            if(buffer){
+                app.setContent(req.query.fileName,req.query.fileName);
+                fs.writeFileSync(req.query.fileName, buffer);
+            }
+        });
         res.status(200).json({"success":true});
     }
 
