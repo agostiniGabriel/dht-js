@@ -1,4 +1,5 @@
 const express = require('express');
+const fileUpload = require("express-fileupload");
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('config');
@@ -13,6 +14,8 @@ module.exports = () => {
     
     //Middlewares
     serverApp.use(bodyParser.json());
+    serverApp.use(express.urlencoded({extended: true}))
+    serverApp.use(fileUpload())
     serverApp.use(cors());
 
     //Local map
