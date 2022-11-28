@@ -25,7 +25,7 @@ module.exports = () => {
     //Local map
     serverApp.contentMap = contentMap;
     serverApp.getContent = () => {
-        return [...serverApp.contentMap.values()];
+        return [...serverApp.contentMap.keys()];
     }
     serverApp.setContent = (key,value) => {
         serverApp.contentMap.set(key,value);
