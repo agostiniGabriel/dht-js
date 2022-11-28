@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "nodemon server.js"
   },
   "author": "Gabriel Agostini",
   "license": "ISC",
@@ -14,6 +14,9 @@
     "config": "^3.3.8",
     "consign": "^0.1.6",
     "cors": "^2.8.5",
-    "express": "^4.18.2"
+    "dht-keyvalue": "^1.1.2",
+    "express": "^4.18.2",
+    "lodash": "^4.17.21",
+    "nodemon": "^2.0.20"
   }
 }

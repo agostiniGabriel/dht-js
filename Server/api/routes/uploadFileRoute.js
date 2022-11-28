@@ -6,4 +6,7 @@ module.exports = app => {
 
     app.route('/api/getFilesList')
     .get(routeController.getFileList);
+
+    app.route('/api/downloadFile')
+    .get(routeController.downloadFile);
 }

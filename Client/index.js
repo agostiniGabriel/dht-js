@@ -21,9 +21,9 @@ function handleFileSelection(fileInput){
         headers: {'Content-Type': file.type},
         body:  blobFile,
         duplex: 'half',
-    }).then((response)=>{
-        console.log(response);
-    });
+    })
+    .then((response)=> response.json())
+    .then((data) => console.log(data));
 }
 
 window.onload = () => {

@@ -3,11 +3,17 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('config');
 const consign = require('consign');
-const http2 = require('http2')
+const dhtKv = require('dht-keyvalue')
+
+const dhtOpts = {
+    keep: true, 
+    keepalive: 3600000 
+}
 
 module.exports = () => {
     const serverApp = express();
     const contentMap = new Map();
+    const dkv = new dhtKv(dhtOpts);
 
     //Settings
     serverApp.set('port', process.env.PORT || config.get('server.port'));
@@ -24,6 +30,10 @@ module.exports = () => {
     serverApp.setContent = (key,value) => {
         serverApp.contentMap.set(key,value);
     }
+    serverApp.getContentByKey = (key) =>{
+        return serverApp.contentMap.get(key);
+    }
+    serverApp.dkvReference = dkv;
 
     //Endpoints
     consign({cwd: 'api'})
@@ -32,6 +42,5 @@ module.exports = () => {
         .then('routes')
         .into(serverApp)
 
-    // return {'http2Wrapper' : http2.createServer(serverApp), 'express':serverApp };
     return serverApp;
 }
