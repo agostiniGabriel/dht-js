@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const config = require('config');
 const consign = require('consign');
+const http2 = require('http2')
 
 module.exports = () => {
     const serverApp = express();
@@ -34,5 +35,6 @@ module.exports = () => {
         .then('routes')
         .into(serverApp)
 
+    // return {'http2Wrapper' : http2.createServer(serverApp), 'express':serverApp };
     return serverApp;
 }
